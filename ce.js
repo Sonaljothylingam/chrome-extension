@@ -2,12 +2,15 @@ let myLeads = [] //an array
 const inpele = document.getElementById("input-el")   //the type space 
 const inpbtn = document.getElementById("input-btn")   //save btn 
 const ulEl = document.getElementById("ul-el")         //unordered list
-
+let leadsFromLocalStorage=JSON.parse(localStorage.getItem("myLeads"))
+console.log(leadsFromLocalStorage)
 inpbtn.addEventListener("click", function () {
     myLeads.push(inpele.value) //pushes the value of type space to array
-    renderLeads()
     inpele.value=""; //clear out the input field
-})
+    localStorage.setItem("myLeads",JSON.stringify(myLeads))
+      console.log(localStorage.getItem("myLeads"))
+      renderLeads()
+    })
 
 function renderLeads() {
     //Create a variable, listItems, to hold all the HTML for the list items
