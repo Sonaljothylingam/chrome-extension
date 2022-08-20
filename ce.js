@@ -1,22 +1,30 @@
-let myLeads=["www.awesomelead.com", "www.epiclead.com", "www.greatlead.com"]
-const inpele=document.getElementById("input-el")
-const inpbtn=document.getElementById("input-btn")
-// Grab the unordered list and store it in a const variable called ulEl
-const ulEl=document.getElementById("ul-el")
+let myLeads = [] //an array
+const inpele = document.getElementById("input-el")   //the type space 
+const inpbtn = document.getElementById("input-btn")   //save btn 
+const ulEl = document.getElementById("ul-el")         //unordered list
 
-inpbtn.addEventListener("click",function(){
-    const val = document.querySelector('input').value;
-     myLeads.push(inpele.value)
-    console.log(myLeads)
+inpbtn.addEventListener("click", function () {
+    myLeads.push(inpele.value) //pushes the value of type space to array
+    renderLeads()
+    inpele.value=""; //clear out the input field
 })
 
-//Create a variable, listItems, to hold all the HTML for the list items
-// Assign it to an empty string to begin with
-let listItems=" "
+function renderLeads() {
+    //Create a variable, listItems, to hold all the HTML for the list items
+    // Assign it to an empty string to begin with
+    let listItems = " "
 
-// Render the leads in the unordered list using ulEl.textContent
-for(let i=0;i<myLeads.length; i++){
-   listItems += "<li> " +myLeads[i] + "</li>"
-   }
-   // Render the listItems inside the unordered list using ulEl.innerHTML
-ulEl.innerHTML=listItems
+    // Render the leads in the unordered list using ulEl.textContent
+    for (let i = 0; i < myLeads.length; i++) {
+    
+       // listItems += "<li><a href='" + myLeads[i] + "' target='_blank'>" + myLeads[i] + "</a></li>"
+      //template strings
+      listItems += `<li>
+      <a href=' ${ myLeads[i] } ' target='_blank'>  ${myLeads[i]}  
+      </a>
+      </li>`
+    }
+    // Render the listItems inside the unordered list using ulEl.innerHTML
+    ulEl.innerHTML = listItems
+   
+}
