@@ -24,7 +24,7 @@ input {
     font-weight: bold;
 }
 
-#input-btn {
+.bdt {
     background: purple;
     color: white;
     padding: 10px 15px;
