@@ -2,8 +2,21 @@ let myLeads = [] //an array
 const inpele = document.getElementById("input-el")   //the type space 
 const inpbtn = document.getElementById("input-btn")   //save btn 
 const ulEl = document.getElementById("ul-el")         //unordered list
-let leadsFromLocalStorage=JSON.parse(localStorage.getItem("myLeads"))
-console.log(leadsFromLocalStorage)
+const delbtn = document.getElementById("delete-btn")   //delete btn
+const leadsFromLocalStorage=JSON.parse(localStorage.getItem("myLeads"))
+
+if (leadsFromLocalStorage){
+  myLeads=leadsFromLocalStorage
+  renderLeads()
+}
+
+delbtn.addEventListener("dblclick",function(){
+  localStorage.clear()
+  myLeads=[]
+  renderLeads()
+
+})
+
 inpbtn.addEventListener("click", function () {
     myLeads.push(inpele.value) //pushes the value of type space to array
     inpele.value=""; //clear out the input field

@@ -14,8 +14,17 @@ input {
     border: 1px solid purple;
 
 }
+#delete-btn{
+    background: white;
+    color: purple;
+    padding: 10px 15px;
+    border: 1px solid;
+    border-color: purple;
+    border-radius: 20px;
+    font-weight: bold;
+}
 
-button {
+#input-btn {
     background: purple;
     color: white;
     padding: 10px 15px;
